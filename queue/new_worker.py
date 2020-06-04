@@ -9,7 +9,7 @@ channel = connection.channel()
 # durable=True
 """
 使用工作队列的一个好处就是它能够并行的处理队列
-如果一个工作者（worker）挂掉了，我们希望任务会重新发送给其他的工作者   no_ack=True 会关闭消息响应 去掉并设置ch.basic_ack(delivery_tag = method.delivery_tag)
+如果一个工作者（worker）挂掉了，我们希望任务会重新发送给其他的工作者   no_ack=True 会关闭消息响应 去掉no_ack=Tru并设置ch.basic_ack(delivery_tag = method.delivery_tag)
 当工作者（worker）挂掉这后，所有没有响应的消息都会重新发送。
 排查不能够释放没相应的消息，那么rabbitmq会占据很多内存。
 sudo rabbitmqctl list_queues name messages_ready messages_unacknowledged
